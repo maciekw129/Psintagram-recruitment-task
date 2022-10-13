@@ -9,7 +9,7 @@ import { DogsService } from './service/dogs.service';
 })
 
 export class AppComponent {
-  dogs = {};
+  dogs: string[] = [];
 
   ngOnInit() {
     this.fetchDogs();
@@ -19,7 +19,10 @@ export class AppComponent {
 
   private fetchDogs() {
     this.dogsService.fetchDogs().subscribe(response => {
-      this.dogs = response;
+      this.dogs = Object.entries(response.message).map(dog => {
+        return dog[0];
+      })
     })
+    console.log(this.dogs);
   }
 }
