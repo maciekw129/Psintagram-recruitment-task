@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, ViewChild, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-select',
@@ -8,7 +8,8 @@ import { Component, ElementRef, Input, OnChanges, ViewChild } from '@angular/cor
 
 export class SelectComponent implements OnChanges {
   @Input() dogs: string[] | undefined;
-  @ViewChild('selectInput', {static: false}) selectInput!: ElementRef;
+  @ViewChild('selectInput', { static: false }) selectInput!: ElementRef;
+  @Output() newItemEvent = new EventEmitter<string>();
 
   filteredDogs: string[] | undefined = [];
   isListVisible: boolean = false;
@@ -30,6 +31,7 @@ export class SelectComponent implements OnChanges {
     this.dog = breed;
     this.selectInput.nativeElement.value = breed;
     this.isListVisible = false;
+    this.newItemEvent.emit(breed);
   }
 
   filter(word: string) {

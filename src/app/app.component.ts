@@ -25,4 +25,8 @@ export class AppComponent {
     })
     console.log(this.dogs);
   }
+
+  fetchSingleDog(dog: string) {
+    console.log(dog);
+  }
 }

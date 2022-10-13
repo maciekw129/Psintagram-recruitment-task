@@ -1,4 +1,7 @@
 <div class="app">
   <h1>Psintagram</h1>
-  <app-select [dogs]="dogs"></app-select>
+  <app-select
+    [dogs]="dogs"
+    (newItemEvent)="fetchSingleDog($event)"
+  ></app-select>
 </div>
