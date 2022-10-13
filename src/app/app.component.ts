@@ -1,10 +1,25 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { DogsService } from './service/dogs.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  
+  dogs = {};
+
+  ngOnInit() {
+    this.fetchDogs();
+  }
+
+  constructor(private http: HttpClient, private dogsService: DogsService) {}
+
+  private fetchDogs() {
+    this.dogsService.fetchDogs().subscribe(response => {
+      this.dogs = response;
+    })
+  }
 }
