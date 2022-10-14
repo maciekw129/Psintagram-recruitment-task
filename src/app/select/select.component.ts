@@ -8,6 +8,7 @@ import { Component, ElementRef, Input, OnChanges, ViewChild, Output, EventEmitte
 
 export class SelectComponent implements OnChanges {
   @Input() dogs: string[] | undefined;
+  @Input() label: string | undefined;
   @ViewChild('selectInput', { static: false }) selectInput!: ElementRef;
   @Output() newItemEvent = new EventEmitter<string>();
 

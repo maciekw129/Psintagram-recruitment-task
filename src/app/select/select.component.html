@@ -1,24 +1,28 @@
-<div class="select">
-    <input
-        #selectInput
-        class="select__input"
-        placeholder="Enter dog breed..."
-        (input)="filter(selectInput.value)"
-        (focus)="changeListVisibility(true)"
-        (focusout)="changeListVisibility(false)"
-        type="text"
-    />
-    <button 
-        [ngClass]="getButtonClass()"
-        (click)="changeListVisibility(true)"
-    >&darr;</button>
+<div>
+    <label class="select__label" for="select-input">{{label}}</label>
+    <div class="select">
+        <input
+            #selectInput
+            id="select-input"
+            class="select__input"
+            placeholder="Enter dog breed..."
+            (input)="filter(selectInput.value)"
+            (focus)="changeListVisibility(true)"
+            (focusout)="changeListVisibility(false)"
+            type="text"
+        />
+        <button 
+            [ngClass]="getButtonClass()"
+            (click)="changeListVisibility(true)"
+        >&darr;</button>
 
-    <ul class="select__list" *ngIf="isListVisible" (mouseover)="changeListVisibility(true)">
-        <li
-            #listItem 
-            class="list__item" 
-            *ngFor="let dog of filteredDogs"
-            (click)="handleItemClick(listItem.innerText)"
-        >{{dog}}</li>
-    </ul>
+        <ul class="select__list" *ngIf="isListVisible" (mouseover)="changeListVisibility(true)">
+            <li
+                #listItem 
+                class="list__item" 
+                *ngFor="let dog of filteredDogs"
+                (click)="handleItemClick(listItem.innerText)"
+            >{{dog}}</li>
+        </ul>
+    </div>
 </div>
