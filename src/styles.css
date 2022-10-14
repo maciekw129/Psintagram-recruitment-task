@@ -11,4 +11,6 @@
     --primaryColor: rgb(234, 162, 80);
     --secondaryColor: rgb(3, 155, 230);
     --tertiaryColor: rgb(253, 96, 91);
+    --quaternaryColor: rgb(244, 219, 206);
+    --grayColor: hsl(0, 0%, 75%);
 }
