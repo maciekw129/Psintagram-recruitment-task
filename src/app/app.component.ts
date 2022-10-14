@@ -9,7 +9,8 @@ import { DogsService } from './service/dogs.service';
 
 export class AppComponent {
   dogs: string[] = [];
-  dog: { breed: string, image: string } | undefined;
+  dog: { breed: string, image: string } = { breed: 'Choose breed first', image: '/assets/question-mark.webp'};
+  label: string = 'Select breed:'
 
   ngOnInit() {
     this.fetchDogs();

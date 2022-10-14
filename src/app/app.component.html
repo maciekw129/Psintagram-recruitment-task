@@ -1,11 +1,17 @@
 <div class="app">
   <app-header></app-header>
-  <app-select
-    [dogs]="dogs"
-    (newItemEvent)="fetchDogImage($event)"
-  ></app-select>
-  <app-dog
-    *ngIf="!!dog"
-    [dog]="dog"
-  ></app-dog>
+
+  <main class="main">
+    <div class="main__wrapper">
+      <app-select
+        class="app__select"
+        [label]="label"
+        [dogs]="dogs"
+        (newItemEvent)="fetchDogImage($event)"
+      ></app-select>
+      <app-dog class="app__dog" [dog]="dog"></app-dog>
+    </div>
+  </main>
+
+  <app-footer></app-footer>
 </div>

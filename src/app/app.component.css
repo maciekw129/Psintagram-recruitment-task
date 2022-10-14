@@ -1,0 +1,20 @@
+.main {
+    height: calc(100vh - 190px);
+    display: flex;
+    align-items: center;
+}
+
+.main__wrapper {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.app__select {
+    width: 50%;
+    
+}
+
+.app__dog {
+    width: 50%;
+}
