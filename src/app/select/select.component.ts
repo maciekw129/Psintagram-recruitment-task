@@ -7,25 +7,34 @@ import { Component, ElementRef, Input, OnChanges, ViewChild, Output, EventEmitte
 })
 
 export class SelectComponent implements OnChanges {
-  @Input() dogs: string[] | undefined;
+  @Input() dogs: string[] = [];
   @Input() label: string | undefined;
   @ViewChild('selectInput', { static: false }) selectInput!: ElementRef;
   @Output() newItemEvent = new EventEmitter<string>();
 
-  filteredDogs: string[] | undefined = [];
+  filteredDogs: string[] = [];
   isListVisible: boolean = false;
   dog: string | null = null;
+  isListHovered: boolean = false;
 
   ngOnChanges() {
     this.filteredDogs = this.dogs;
   }
 
-  getButtonClass() {
-    return `select__button ${this.isListVisible ? 'select__button--visible' : 'select__button--hidden'}`;
+  getArrowClass() {
+    return `select__arrow ${this.isListVisible ? 'select__arrow--visible' : 'select__arrow--hidden'}`;
+  }
+
+  setListIsHovered(hovered: boolean) {
+    this.isListHovered = hovered;
   }
 
   changeListVisibility(isVisible: boolean) {
-    this.isListVisible = isVisible;
+    if(this.isListHovered) {
+      this.isListHovered = false;
+    } else {
+      this.isListVisible = isVisible;
+    }
   }
 
   handleItemClick(breed: string) {
@@ -39,5 +48,9 @@ export class SelectComponent implements OnChanges {
     this.filteredDogs = this.dogs?.filter(dog => {
       return dog.includes(word);
     })
-  } 
+  }
+  
+  isFilteredDogsEmpty() {
+    return Object.keys(this.filteredDogs).length === 0
+  }
 }

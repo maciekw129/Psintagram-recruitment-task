@@ -34,6 +34,15 @@
     transition: background-color 0.2s linear;
 }
 
+.select__arrow {
+    transition: transform 0.25s ease-in-out;
+}
+
+.select__arrow--visible {
+    transform: rotate(-180deg);
+    transition: transform 0.25s ease-in-out;
+}
+
 .select__list {
     position: absolute;
     top: 30px;
@@ -64,10 +73,6 @@
 	background-color: var(--secondaryColor);
 }
 
-.select__list--hidden {
-    display: none;
-}
-
 .select__list:hover {
     display: block;
 }
@@ -81,4 +86,8 @@
     cursor: pointer;
     background-color: var(--primaryColor);
     transition: background-color 0.2s linear;
+}
+
+.list__empty {
+    padding: 10px;
 }

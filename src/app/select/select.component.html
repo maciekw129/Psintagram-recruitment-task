@@ -12,17 +12,25 @@
             type="text"
         />
         <button 
-            [ngClass]="getButtonClass()"
-            (click)="changeListVisibility(true)"
-        >&darr;</button>
+            class="select__button"
+            (click)="changeListVisibility(!isListVisible)"
+            (focusout)="changeListVisibility(false)"
+        ><span [ngClass]="getArrowClass()">&darr;</span></button>
 
-        <ul class="select__list" *ngIf="isListVisible" (mouseover)="changeListVisibility(true)">
+        <ul 
+            class="select__list" 
+            *ngIf="isListVisible" 
+            (mouseover)="setListIsHovered(true)"
+            (mouseout)="setListIsHovered(false)"
+        >
             <li
                 #listItem 
                 class="list__item" 
                 *ngFor="let dog of filteredDogs"
                 (click)="handleItemClick(listItem.innerText)"
             >{{dog}}</li>
+
+            <li class="list__empty" *ngIf="filteredDogs.length === 0">Sorry We havent found any breed.</li>
         </ul>
     </div>
 </div>
