@@ -1,0 +1,21 @@
+.dog__image {
+    border-radius: 5px;
+    height: 100%;
+    overflow: hidden;
+    height: 400px;
+    display: flex;
+    border: 1.5px solid var(--grayColor);
+    border-radius: 5px;
+    margin: 25px 0;
+    padding: 10px;
+}
+
+.dog__link {
+    color: var(--secondaryColor);
+    transition: color 0.2s linear;
+}
+
+.dog__link:hover {
+    color: var(--tertiaryColor);
+    transition: color 0.2s linear;
+}

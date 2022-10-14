@@ -1,14 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-dog',
   templateUrl: './dog.component.html',
   styleUrls: ['./dog.component.css']
 })
-export class DogComponent implements OnInit {
-  @Input() dog: { breed: string, image: string } | undefined;
+export class DogComponent {
+  @Input() dog!: { breed: string, image: string };
+  image: string = '/assets/question-mark.webp';
+  isEmpty: boolean = true;
 
-  ngOnInit(): void {
+  getIsEmpty() {
+    return !(this.dog.breed === 'Choose breed first');
   }
 
   getWikiLink() {
