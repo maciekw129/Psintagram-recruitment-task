@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    height: 90px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 20px;
+}
+
+.header__image-wrapper {
+    margin-left: 10px;
+    height: 80%;
+    display: flex;
+}
