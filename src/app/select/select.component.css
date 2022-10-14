@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     width: 200px;
+    margin-top: 15px;
 }
 
 .select__input {
@@ -29,7 +30,7 @@
 
 .select__button:hover {
     cursor: pointer;
-    background-color: lightgreen;
+    background-color: var(--primaryColor);
     transition: background-color 0.2s linear;
 }
 
@@ -42,7 +43,7 @@
     text-align: center;
     max-height: 200px;
     overflow-y: scroll;
-    border: 1px solid hsl(0, 0%, 85%);
+    border: 1px solid var(--grayColor);
     border-radius: 5px;
 }
 
@@ -60,7 +61,7 @@
 .select__list::-webkit-scrollbar-thumb {
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: lightgreen;
+	background-color: var(--secondaryColor);
 }
 
 .select__list--hidden {
@@ -78,6 +79,6 @@
 
 .list__item:hover {
     cursor: pointer;
-    background-color: lightgreen;
+    background-color: var(--primaryColor);
     transition: background-color 0.2s linear;
 }
