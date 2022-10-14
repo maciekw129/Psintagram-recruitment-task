@@ -1,7 +1,11 @@
 <div class="app">
-  <h1>Psintagram</h1>
+  <app-header></app-header>
   <app-select
     [dogs]="dogs"
-    (newItemEvent)="fetchSingleDog($event)"
+    (newItemEvent)="fetchDogImage($event)"
   ></app-select>
+  <app-dog
+    *ngIf="!!dog"
+    [dog]="dog"
+  ></app-dog>
 </div>

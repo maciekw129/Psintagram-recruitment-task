@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { DogsService } from './service/dogs.service';
 
@@ -10,12 +9,13 @@ import { DogsService } from './service/dogs.service';
 
 export class AppComponent {
   dogs: string[] = [];
+  dog: { breed: string, image: string } | undefined;
 
   ngOnInit() {
     this.fetchDogs();
   }
 
-  constructor(private http: HttpClient, private dogsService: DogsService) {}
+  constructor(private dogsService: DogsService) {}
 
   private fetchDogs() {
     this.dogsService.fetchDogs().subscribe(response => {
@@ -23,10 +23,14 @@ export class AppComponent {
         return dog[0];
       })
     })
-    console.log(this.dogs);
   }
 
-  fetchSingleDog(dog: string) {
-    console.log(dog);
+  fetchDogImage(dog: string) {
+    this.dogsService.fetchDogImage(dog).subscribe(response => {
+      this.dog = {
+        breed: dog,
+        image: response.message
+      };
+    })
   }
 }
