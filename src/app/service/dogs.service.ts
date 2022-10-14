@@ -9,5 +9,9 @@ export class DogsService {
 
     fetchDogs() {
         return this.http.get<any>('https://dog.ceo/api/breeds/list/all');
-    }  
+    }
+    
+    fetchDogImage(breed: string) {
+        return this.http.get<any>(`https://dog.ceo/api/breed/${breed}/images/random`);
+    }
 }
