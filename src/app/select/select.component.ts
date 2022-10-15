@@ -8,8 +8,8 @@ import { Component, ElementRef, Input, OnChanges, ViewChild, Output, EventEmitte
 
 export class SelectComponent implements OnChanges {
   @Input() dogs: string[] = [];
-  @Input() label: string | undefined;
-  @ViewChild('selectInput', { static: false }) selectInput!: ElementRef;
+  @Input() label: string = '';
+  @ViewChild('selectInput') selectInput!: ElementRef;
   @Output() newItemEvent = new EventEmitter<string>();
 
   filteredDogs: string[] = [];
@@ -22,19 +22,13 @@ export class SelectComponent implements OnChanges {
   }
 
   getArrowClass() {
-    return `select__arrow ${this.isListVisible ? 'select__arrow--visible' : 'select__arrow--hidden'}`;
-  }
-
-  setListIsHovered(hovered: boolean) {
-    this.isListHovered = hovered;
+    return `select__arrow ${this.isListVisible ? 'select__arrow--visible' : ''}`;
   }
 
   changeListVisibility(isVisible: boolean) {
-    if(this.isListHovered) {
-      this.isListHovered = false;
-    } else {
-      this.isListVisible = isVisible;
-    }
+    this.isListHovered 
+    ? this.isListHovered = false 
+    : this.isListVisible = isVisible;
   }
 
   handleItemClick(breed: string) {
@@ -48,9 +42,5 @@ export class SelectComponent implements OnChanges {
     this.filteredDogs = this.dogs?.filter(dog => {
       return dog.includes(word);
     })
-  }
-  
-  isFilteredDogsEmpty() {
-    return Object.keys(this.filteredDogs).length === 0
   }
 }

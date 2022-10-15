@@ -3,7 +3,7 @@
     position: relative;
 }
 
-.main {
+.app__main {
     margin: 0 25px;
     margin-top: 100px;
 }
@@ -14,11 +14,11 @@
     display: flex;
 }
 
-.app__select {
+.main__select {
     width: 50%;
 }
 
-.app__dog {
+.main__dog {
     width: 50%;
     margin-bottom: 100px;
 }
@@ -29,15 +29,12 @@
         align-items: center;
     }
 
-    .app__select {
+    .main__select {
         margin-bottom: 90px;
-    }
-
-    .app__select {
         width: auto;
     }
 
-    .app__dog {
+    .main__dog {
         width: 100%;
     }
 }

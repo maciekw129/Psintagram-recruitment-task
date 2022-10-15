@@ -13,4 +13,6 @@
     --tertiaryColor: rgb(253, 96, 91);
     --quaternaryColor: rgb(244, 219, 206);
     --grayColor: hsl(0, 0%, 75%);
+    --blackColor: hsl(0, 0%, 0%);
+    --whiteColor: hsl(0, 0%, 100%);
 }

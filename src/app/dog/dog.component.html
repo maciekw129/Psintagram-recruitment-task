@@ -1,14 +1,13 @@
 <div class="dog">
     <h1 class="dog__title">{{dog.breed}}</h1>
-        <img
-            class="dog__image"
-            [src]="dog.image"
-            alt="Dog image"
-        />
-    
+    <img
+        class="dog__image"
+        [src]="dog.image"
+        alt="Dog image"
+    />
     <a 
         class="dog__link" 
-        *ngIf="getIsEmpty()" 
+        *ngIf="isEmpty()" 
         [href]="getWikiLink()" 
         target="_blank"
     >Show me more about {{dog.breed}} breed.</a>

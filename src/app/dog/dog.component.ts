@@ -6,16 +6,13 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./dog.component.css']
 })
 export class DogComponent {
-  @Input() dog!: { breed: string, image: string };
-  image: string = '/assets/question-mark.webp';
-  isEmpty: boolean = true;
+  @Input() dog: { breed: string, image: string } = { breed: 'Choose breed first', image: '/assets/question-mark.webp'};
 
-  getIsEmpty() {
+  isEmpty() {
     return !(this.dog.breed === 'Choose breed first');
   }
 
   getWikiLink() {
     return `https://en.wikipedia.org/wiki/${this.dog?.breed}`;
   }
-
 }
