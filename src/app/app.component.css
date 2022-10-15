@@ -1,31 +1,43 @@
+.app {
+    min-height: calc(100vh);
+    position: relative;
+}
+
 .main {
-    height: calc(100vh - 190px);
-    display: flex;
-    align-items: center;
+    margin: 0 25px;
+    margin-top: 100px;
 }
 
 .main__wrapper {
-    width: 80%;
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
 }
 
 .app__select {
     width: 50%;
-    
 }
 
 .app__dog {
     width: 50%;
+    margin-bottom: 100px;
 }
 
 @media only screen and (max-width: 600px) {
     .main__wrapper {
-        flex-direction: column-reverse;
+        flex-direction: column;
         align-items: center;
     }
 
     .app__select {
-        margin-top: 90px;
+        margin-bottom: 90px;
+    }
+
+    .app__select {
+        width: auto;
+    }
+
+    .app__dog {
+        width: 100%;
     }
 }
